@@ -25,8 +25,9 @@ var turrets;
 var enemies;
 
 // Define constants for game settings
-const ENEMY_SPEED = 4 / 10000;
+const ENEMY_SPEED = 2 / 10000;
 const BULLET_DAMAGE = 20;
+const TURRET_RELOAD = 500;
 
 // Define the game map
 const map = [[0, -1, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -125,7 +126,7 @@ var Turret = new Phaser.Class({
     update: function (time, delta) {
         if (time > this.nextTic) {
             this.fire();
-            this.nextTic = time + 1000;
+            this.nextTic = time + TURRET_RELOAD;
         }
     }
 });
